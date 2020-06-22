@@ -3,6 +3,17 @@ const inq = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 const questions = [
+   
+    {
+        type: "input",
+        name: "github",
+        message: "What is your GitHub?",
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "what is you email adress?",
+    },
     {
         type: 'input',
         name: 'title',
@@ -10,63 +21,49 @@ const questions = [
         default: 'Project title',
     },
     {
-        type: 'editor',
+        type: 'input',
         name: 'desc',
         message: 'Describe your project with good details?',
     },
     {
-        type: 'editor',
+        type: 'input',
         name: 'inst',
         message: 'Describe the installation process of your app?',
+        default: 'npm install',
     },
     {
-        type: 'editor',
+        type: 'input',
         name: 'usage',
-        message: 'Provide instructions on how to use the app including screenshots if needed?',
+        message: 'Please provide instructions on how to use the app?',
     },
     {
-        type: 'editor',
+        type: 'input',
         name: 'credits',
         message: 'Provide a list of colaborators involved in the project?',
     },
     {
-        type: 'editor',
+        type: 'list',
         name: 'license',
         message:  "What license is your project using?",
         choices: [
-          "mit",
-          "lgpl-3.0",
-          "mpl-2.0",
-          "agpl-3.0",
-          "unlicense",
-          "isc",
-          "apache-2.0",
-          "gpl-3.0",
+          "MIT",
+          "GPL 3.0",
+          "None"
         ],
     },
     {
-        type: "confirm",
-        name: "badges",
-        message: "Would you like to add a badge for this license?",
+        type: 'input',
+        name: 'contribution',
+        message: 'What should the user know about making contributions to the repo?',
     },
     {
-        type: 'editor',
-        name: 'contri',
-        message: 'Please follow the steps for contributions',
-    },
-    {
-        type: 'editor',
+        type: 'input',
         name: 'test',
         message: 'Test for the application',
-    },
-    {
-        type: 'editor',
-        name: 'questions',
-        message: 'Some of the commonly asked questions and their answers?',
+        default: 'npm test'
     },
    
     
-
 ];
 
 function writeToFile(fileName, data) {
